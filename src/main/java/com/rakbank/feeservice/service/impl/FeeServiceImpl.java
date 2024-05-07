@@ -8,6 +8,7 @@ import com.rakbank.feeservice.service.FeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +20,7 @@ public class FeeServiceImpl implements FeeService {
 
     @Override
     public Fee create(FeeRequest fee) {
-        FeeEntity result = feeRepository.saveAndFlush(new FeeEntity(fee.getName(),fee.getType(),fee.getCurrency(),fee.getAmount(),fee.getCreationDate(),fee.getDueDate()));
+        FeeEntity result = feeRepository.saveAndFlush(new FeeEntity(fee.getName(),fee.getType(),fee.getCurrency(),fee.getAmount(), ZonedDateTime.now(),ZonedDateTime.now()));
         return feeRepository.getFeeById(result.getId());
     }
 

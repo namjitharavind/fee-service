@@ -23,7 +23,4 @@ public class FeeRequest implements Serializable {
     private FeeType type;
     private Currency currency;
     private Double amount;
-    private ZonedDateTime creationDate;
-    private ZonedDateTime dueDate;
-
 }
